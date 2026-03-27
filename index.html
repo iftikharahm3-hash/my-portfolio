@@ -28,7 +28,6 @@
             font-family: 'Playfair Display', serif;
         }
         
-        /* Animated background gradient */
         .gradient-bg {
             background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e3a5f);
             background-size: 400% 400%;
@@ -41,7 +40,6 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* Floating particles */
         .particle {
             position: absolute;
             width: 4px;
@@ -58,7 +56,6 @@
             100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
         
-        /* Glass morphism */
         .glass {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -78,7 +75,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
-        /* Timeline */
         .timeline-line {
             position: absolute;
             left: 50%;
@@ -100,7 +96,6 @@
             z-index: 10;
         }
         
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -112,7 +107,6 @@
             transform: translateY(0);
         }
         
-        /* Skill bars */
         .skill-bar {
             height: 4px;
             background: rgba(255, 255, 255, 0.1);
@@ -127,7 +121,6 @@
             transition: width 1.5s ease;
         }
         
-        /* Navigation */
         .nav-link {
             position: relative;
             overflow: hidden;
@@ -148,7 +141,6 @@
             width: 100%;
         }
         
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -162,7 +154,6 @@
             border-radius: 4px;
         }
         
-        /* Publication card hover */
         .pub-card {
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
@@ -173,7 +164,6 @@
             background: rgba(59, 130, 246, 0.05);
         }
         
-        /* Stats counter animation */
         .stat-number {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
@@ -181,7 +171,6 @@
             background-clip: text;
         }
         
-        /* Mobile menu */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
@@ -191,7 +180,6 @@
             transform: translateX(0);
         }
 
-        /* Social icon hover effects */
         .social-icon {
             transition: all 0.3s ease;
         }
@@ -200,7 +188,6 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
 
-        /* Profile image styling */
         .profile-image {
             border: 4px solid rgba(59, 130, 246, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -212,7 +199,6 @@
             box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
         }
 
-        /* Collaboration logo container */
         .logo-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
@@ -405,21 +391,22 @@
                 <div class="reveal order-1 md:order-2 flex flex-col items-center">
                     <div class="relative">
                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-30"></div>
-                        <img src="images/profile.jpg" alt="Dr. Iftikhar Ahmad" class="profile-image relative w-64 h-80 object-cover rounded-2xl">
+                        <!-- Profile photo - update filename if different -->
+                        <img src="Pi7_Passport_Photo.jpeg" alt="Dr. Iftikhar Ahmad" class="profile-image relative w-64 h-80 object-cover rounded-2xl">
                     </div>
                     
                     <div class="mt-6 glass-card rounded-xl p-4 w-full max-w-sm">
                         <h3 class="font-display text-lg font-bold text-white mb-3 text-center">Education</h3>
                         <div class="space-y-3">
                             <div class="flex items-center gap-3">
-                                <img src="images/cranfield-logo.png" alt="Cranfield" class="w-8 h-8 object-contain rounded bg-white p-1">
+                                <img src="ul1a578m86qs0un5auokra9usk.png" alt="Cranfield" class="w-8 h-8 object-contain rounded bg-white p-1">
                                 <div class="text-left">
                                     <p class="text-sm font-semibold text-white">Ph.D. & Research Fellow</p>
                                     <p class="text-xs text-gray-400">Cranfield University</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3">
-                                <img src="images/glasgow-logo.png" alt="Glasgow" class="w-8 h-8 object-contain rounded bg-white p-1">
+                                <img src="image.png" alt="Glasgow" class="w-8 h-8 object-contain rounded bg-white p-1">
                                 <div class="text-left">
                                     <p class="text-sm font-semibold text-white">Ph.D. Electronics & Electrical Eng.</p>
                                     <p class="text-xs text-gray-400">University of Glasgow</p>
@@ -856,27 +843,27 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center reveal">
                 <!-- ESA Logo -->
                 <div class="logo-container w-full" title="European Space Agency">
-                    <img src="images/esa-logo.png" alt="ESA" class="max-h-16">
+                    <img src="ESA_logo_2020_White-1024x643.jpg" alt="ESA" class="max-h-16">
                 </div>
 
                 <!-- OneWeb Logo -->
                 <div class="logo-container w-full" title="Eutelsat OneWeb">
-                    <img src="images/oneweb-logo.jpg" alt="OneWeb" class="max-h-12">
+                    <img src="Eutelsat-OneWeb-logo_400.jpg" alt="OneWeb" class="max-h-12">
                 </div>
 
                 <!-- NPL Logo -->
                 <div class="logo-container w-full" title="National Physical Laboratory">
-                    <img src="images/npl-logo.jpg" alt="NPL" class="max-h-14">
+                    <img src="b68c519f-88a4-456a-9e92351fb912aa5d.jpg" alt="NPL" class="max-h-14">
                 </div>
 
                 <!-- Cranfield Logo -->
                 <div class="logo-container w-full" title="Cranfield University">
-                    <img src="images/cranfield-logo.png" alt="Cranfield University" class="max-h-16">
+                    <img src="ul1a578m86qs0un5auokra9usk.png" alt="Cranfield University" class="max-h-16">
                 </div>
 
                 <!-- University of Glasgow Logo -->
                 <div class="logo-container w-full" title="University of Glasgow">
-                    <img src="images/glasgow-logo.png" alt="University of Glasgow" class="max-h-14">
+                    <img src="image.png" alt="University of Glasgow" class="max-h-14">
                 </div>
 
                 <!-- EPSRC Text Logo -->
@@ -947,7 +934,7 @@
                                     </svg>
                                 </a>
                                 <a href="#" class="social-icon w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-500/30 transition border border-white/20" title="Cranfield Profile">
-                                    <img src="images/cranfield-logo.png" alt="Cranfield" class="w-6 h-6 object-contain rounded">
+                                    <img src="ul1a578m86qs0un5auokra9usk.png" alt="Cranfield" class="w-6 h-6 object-contain rounded">
                                 </a>
                             </div>
                         </div>
