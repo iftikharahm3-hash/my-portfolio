@@ -56,6 +56,253 @@
             100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
         
+        /* Realistic UAV/Drone Animation */
+        .uav {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            z-index: 5;
+            opacity: 0.85;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+        }
+        
+        .uav-svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        
+        /* Propeller blur effect for realistic spinning */
+        .propeller-blur {
+            animation: propellerSpin 0.05s linear infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes propellerSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* LED blink animation */
+        .led-red {
+            animation: ledBlinkRed 1s ease-in-out infinite;
+        }
+        
+        .led-green {
+            animation: ledBlinkGreen 1s ease-in-out infinite 0.5s;
+        }
+        
+        @keyframes ledBlinkRed {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; filter: drop-shadow(0 0 4px #ef4444); }
+        }
+        
+        @keyframes ledBlinkGreen {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; filter: drop-shadow(0 0 4px #22c55e); }
+        }
+        
+        /* UAV floating/hovering animation */
+        .uav-float-1 {
+            animation: uavFly1 25s infinite linear;
+        }
+        
+        .uav-float-2 {
+            animation: uavFly2 30s infinite linear;
+        }
+        
+        .uav-float-3 {
+            animation: uavFly3 35s infinite linear;
+        }
+        
+        /* Hover bobbing effect */
+        .uav-hover {
+            animation: uavBob 2s ease-in-out infinite;
+        }
+        
+        @keyframes uavBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes uavFly1 {
+            0% { transform: translate(-150px, 80vh) rotate(-3deg) scale(0.9); opacity: 0; }
+            5% { opacity: 0.85; }
+            25% { transform: translate(25vw, 60vh) rotate(2deg) scale(1); }
+            50% { transform: translate(50vw, 40vh) rotate(-2deg) scale(0.95); }
+            75% { transform: translate(75vw, 55vh) rotate(2deg) scale(1); }
+            95% { opacity: 0.85; }
+            100% { transform: translate(120vw, 30vh) rotate(0deg) scale(0.9); opacity: 0; }
+        }
+        
+        @keyframes uavFly2 {
+            0% { transform: translate(120vw, 50vh) rotate(3deg) scale(0.85); opacity: 0; }
+            5% { opacity: 0.75; }
+            25% { transform: translate(80vw, 70vh) rotate(-2deg) scale(0.95); }
+            50% { transform: translate(50vw, 45vh) rotate(2deg) scale(1); }
+            75% { transform: translate(25vw, 65vh) rotate(-2deg) scale(0.9); }
+            95% { opacity: 0.75; }
+            100% { transform: translate(-150px, 35vh) rotate(0deg) scale(0.85); opacity: 0; }
+        }
+        
+        @keyframes uavFly3 {
+            0% { transform: translate(50vw, 100vh) rotate(-2deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            30% { transform: translate(30vw, 75vh) rotate(2deg) scale(0.9); }
+            60% { transform: translate(70vw, 50vh) rotate(-2deg) scale(1); }
+            90% { opacity: 0.7; }
+            100% { transform: translate(45vw, -150px) rotate(0deg) scale(0.8); opacity: 0; }
+        }
+        
+        /* Satellite Animation */
+        .satellite {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            z-index: 5;
+            opacity: 0.6;
+        }
+        
+        .satellite-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .satellite-panel {
+            position: absolute;
+            top: 50%;
+            width: 35px;
+            height: 12px;
+            background: linear-gradient(180deg, #1e3a5f, #0f172a, #1e3a5f);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 2px;
+            transform: translateY(-50%);
+        }
+        
+        .satellite-panel::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(139, 92, 246, 0.3) 0px,
+                rgba(139, 92, 246, 0.3) 3px,
+                transparent 3px,
+                transparent 6px
+            );
+            border-radius: 1px;
+        }
+        
+        .satellite-panel.left {
+            right: 50%;
+            margin-right: 8px;
+            animation: panelPulse 3s ease-in-out infinite;
+        }
+        
+        .satellite-panel.right {
+            left: 50%;
+            margin-left: 8px;
+            animation: panelPulse 3s ease-in-out infinite 1.5s;
+        }
+        
+        @keyframes panelPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .satellite-dish {
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 8px;
+            background: linear-gradient(180deg, #6366f1, #4f46e5);
+            border-radius: 0 0 50% 50%;
+        }
+        
+        .satellite-signal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+        }
+        
+        .signal-wave {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 50%;
+            opacity: 0;
+            animation: signalEmit 2s ease-out infinite;
+        }
+        
+        .signal-wave:nth-child(1) { animation-delay: 0s; }
+        .signal-wave:nth-child(2) { animation-delay: 0.5s; }
+        .signal-wave:nth-child(3) { animation-delay: 1s; }
+        
+        @keyframes signalEmit {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+        
+        .satellite-orbit-1 {
+            animation: satelliteOrbit1 40s infinite linear;
+        }
+        
+        .satellite-orbit-2 {
+            animation: satelliteOrbit2 50s infinite linear;
+        }
+        
+        @keyframes satelliteOrbit1 {
+            0% { transform: translate(10vw, 15vh) rotate(0deg); }
+            25% { transform: translate(40vw, 10vh) rotate(90deg); }
+            50% { transform: translate(70vw, 20vh) rotate(180deg); }
+            75% { transform: translate(45vw, 25vh) rotate(270deg); }
+            100% { transform: translate(10vw, 15vh) rotate(360deg); }
+        }
+        
+        @keyframes satelliteOrbit2 {
+            0% { transform: translate(85vw, 70vh) rotate(180deg); }
+            25% { transform: translate(60vw, 75vh) rotate(270deg); }
+            50% { transform: translate(30vw, 68vh) rotate(360deg); }
+            75% { transform: translate(55vw, 63vh) rotate(450deg); }
+            100% { transform: translate(85vw, 70vh) rotate(540deg); }
+        }
+        
+        /* Constellation Lines */
+        .constellation-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+            transform-origin: left center;
+            pointer-events: none;
+            z-index: 4;
+        }
+        
         .glass {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -218,12 +465,348 @@
             max-width: 100%;
             object-fit: contain;
         }
+
+        /* Research Area Icons */
+        .research-icon {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .uav-icon-svg {
+            width: 60px;
+            height: 60px;
+            animation: uavHover 3s ease-in-out infinite;
+        }
+
+        @keyframes uavHover {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .satellite-icon-svg {
+            width: 50px;
+            height: 50px;
+            animation: satellitePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes satellitePulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8)); }
+        }
     </style>
 </head>
 <body class="gradient-bg min-h-screen">
 
     <!-- Floating Particles -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Animated UAVs - Realistic Quadcopter Drones -->
+    <!-- UAV 1 - Large Professional Drone -->
+    <div class="uav uav-float-1" style="top: 15%;">
+        <svg class="uav-svg" viewBox="0 0 120 120">
+            <defs>
+                <!-- Gradients -->
+                <linearGradient id="bodyGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#374151"/>
+                    <stop offset="50%" style="stop-color:#1f2937"/>
+                    <stop offset="100%" style="stop-color:#111827"/>
+                </linearGradient>
+                <linearGradient id="armGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4b5563"/>
+                    <stop offset="100%" style="stop-color:#1f2937"/>
+                </linearGradient>
+                <linearGradient id="motorGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#6b7280"/>
+                    <stop offset="100%" style="stop-color:#374151"/>
+                </linearGradient>
+                <radialGradient id="propGrad1">
+                    <stop offset="0%" style="stop-color:rgba(147,197,253,0.9)"/>
+                    <stop offset="50%" style="stop-color:rgba(59,130,246,0.5)"/>
+                    <stop offset="100%" style="stop-color:rgba(59,130,246,0)"/>
+                </radialGradient>
+                <linearGradient id="camGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1f2937"/>
+                    <stop offset="100%" style="stop-color:#000000"/>
+                </linearGradient>
+                <filter id="shadow1" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="4" flood-color="rgba(0,0,0,0.5)"/>
+                </filter>
+                <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Shadow underneath -->
+            <ellipse cx="60" cy="105" rx="35" ry="8" fill="rgba(0,0,0,0.3)" filter="url(#shadow1)"/>
+            
+            <!-- Landing gear legs -->
+            <line x1="45" y1="70" x2="40" y2="95" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+            <line x1="75" y1="70" x2="80" y2="95" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+            <line x1="42" y1="92" x2="78" y2="92" stroke="#4b5563" stroke-width="2" stroke-linecap="round"/>
+            
+            <!-- Arms (X configuration) -->
+            <g transform="translate(60,60)">
+                <!-- Arm 1 (front-right) -->
+                <rect x="0" y="-6" width="45" height="12" rx="3" fill="url(#armGrad1)" transform="rotate(45)"/>
+                <!-- Arm 2 (front-left) -->
+                <rect x="0" y="-6" width="45" height="12" rx="3" fill="url(#armGrad1)" transform="rotate(-45)"/>
+                <!-- Arm 3 (back-left) -->
+                <rect x="-45" y="-6" width="45" height="12" rx="3" fill="url(#armGrad1)" transform="rotate(45)"/>
+                <!-- Arm 4 (back-right) -->
+                <rect x="-45" y="-6" width="45" height="12" rx="3" fill="url(#armGrad1)" transform="rotate(-45)"/>
+            </g>
+            
+            <!-- Motor housings -->
+            <circle cx="92" cy="32" r="10" fill="url(#motorGrad1)" stroke="#6b7280" stroke-width="1"/>
+            <circle cx="92" cy="88" r="10" fill="url(#motorGrad1)" stroke="#6b7280" stroke-width="1"/>
+            <circle cx="28" cy="32" r="10" fill="url(#motorGrad1)" stroke="#6b7280" stroke-width="1"/>
+            <circle cx="28" cy="88" r="10" fill="url(#motorGrad1)" stroke="#6b7280" stroke-width="1"/>
+            
+            <!-- LED Navigation Lights -->
+            <circle cx="92" cy="22" r="2.5" fill="#ef4444" class="led-red" filter="url(#glowBlue)"/>
+            <circle cx="28" cy="22" r="2.5" fill="#22c55e" class="led-green" filter="url(#glowBlue)"/>
+            <circle cx="92" cy="98" r="2" fill="#fbbf24" opacity="0.6"/>
+            <circle cx="28" cy="98" r="2" fill="#fbbf24" opacity="0.6"/>
+            
+            <!-- Propellers with blur effect -->
+            <g class="propeller-blur">
+                <ellipse cx="92" cy="22" rx="22" ry="4" fill="url(#propGrad1)" opacity="0.8"/>
+                <ellipse cx="92" cy="22" rx="4" ry="22" fill="url(#propGrad1)" opacity="0.6"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.02s;">
+                <ellipse cx="92" cy="98" rx="22" ry="4" fill="url(#propGrad1)" opacity="0.8"/>
+                <ellipse cx="92" cy="98" rx="4" ry="22" fill="url(#propGrad1)" opacity="0.6"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.01s;">
+                <ellipse cx="28" cy="22" rx="22" ry="4" fill="url(#propGrad1)" opacity="0.8"/>
+                <ellipse cx="28" cy="22" rx="4" ry="22" fill="url(#propGrad1)" opacity="0.6"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.03s;">
+                <ellipse cx="28" cy="98" rx="22" ry="4" fill="url(#propGrad1)" opacity="0.8"/>
+                <ellipse cx="28" cy="98" rx="4" ry="22" fill="url(#propGrad1)" opacity="0.6"/>
+            </g>
+            
+            <!-- Main body -->
+            <ellipse cx="60" cy="60" rx="22" ry="18" fill="url(#bodyGrad1)" stroke="#4b5563" stroke-width="1"/>
+            
+            <!-- Body detail lines -->
+            <line x1="48" y1="60" x2="72" y2="60" stroke="#6b7280" stroke-width="1" opacity="0.5"/>
+            <line x1="60" y1="48" x2="60" y2="72" stroke="#6b7280" stroke-width="1" opacity="0.5"/>
+            
+            <!-- Top sensor dome -->
+            <circle cx="60" cy="55" r="6" fill="#1f2937" stroke="#4b5563" stroke-width="1"/>
+            <circle cx="60" cy="53" r="3" fill="#3b82f6" opacity="0.8"/>
+            
+            <!-- Camera gimbal underneath -->
+            <g transform="translate(60, 78)">
+                <!-- Gimbal mount -->
+                <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#374151"/>
+                <!-- Camera housing -->
+                <ellipse cx="0" cy="8" rx="10" ry="8" fill="url(#camGrad1)" stroke="#4b5563" stroke-width="1"/>
+                <!-- Camera lens -->
+                <circle cx="0" cy="8" r="5" fill="#0f172a" stroke="#1f2937" stroke-width="2"/>
+                <circle cx="0" cy="8" r="3" fill="#1e3a5f" opacity="0.8"/>
+                <circle cx="1" cy="7" r="1.5" fill="rgba(255,255,255,0.3)"/>
+            </g>
+            
+            <!-- Status LED on body -->
+            <circle cx="60" cy="45" r="2" fill="#3b82f6" opacity="0.8">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+
+    <!-- UAV 2 - Medium Size Drone -->
+    <div class="uav uav-float-2" style="top: 45%; width: 100px; height: 100px;">
+        <svg class="uav-svg" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="bodyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e3a5f"/>
+                    <stop offset="50%" style="stop-color:#0f172a"/>
+                    <stop offset="100%" style="stop-color:#020617"/>
+                </linearGradient>
+                <linearGradient id="armGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3b82f6"/>
+                    <stop offset="100%" style="stop-color:#1d4ed8"/>
+                </linearGradient>
+                <radialGradient id="propGrad2">
+                    <stop offset="0%" style="stop-color:rgba(96,165,250,0.8)"/>
+                    <stop offset="100%" style="stop-color:rgba(59,130,246,0)"/>
+                </radialGradient>
+            </defs>
+            
+            <!-- Shadow -->
+            <ellipse cx="50" cy="88" rx="28" ry="6" fill="rgba(0,0,0,0.25)"/>
+            
+            <!-- Arms -->
+            <g transform="translate(50,50)">
+                <rect x="0" y="-4" width="38" height="8" rx="2" fill="url(#armGrad2)" transform="rotate(45)"/>
+                <rect x="0" y="-4" width="38" height="8" rx="2" fill="url(#armGrad2)" transform="rotate(-45)"/>
+                <rect x="-38" y="-4" width="38" height="8" rx="2" fill="url(#armGrad2)" transform="rotate(45)"/>
+                <rect x="-38" y="-4" width="38" height="8" rx="2" fill="url(#armGrad2)" transform="rotate(-45)"/>
+            </g>
+            
+            <!-- Motors -->
+            <circle cx="77" cy="27" r="7" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+            <circle cx="77" cy="73" r="7" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+            <circle cx="23" cy="27" r="7" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+            <circle cx="23" cy="73" r="7" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+            
+            <!-- LEDs -->
+            <circle cx="77" cy="19" r="2" fill="#ef4444" class="led-red"/>
+            <circle cx="23" cy="19" r="2" fill="#22c55e" class="led-green"/>
+            
+            <!-- Propellers -->
+            <g class="propeller-blur">
+                <ellipse cx="77" cy="19" rx="18" ry="3.5" fill="url(#propGrad2)" opacity="0.7"/>
+                <ellipse cx="77" cy="19" rx="3.5" ry="18" fill="url(#propGrad2)" opacity="0.5"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.015s;">
+                <ellipse cx="77" cy="81" rx="18" ry="3.5" fill="url(#propGrad2)" opacity="0.7"/>
+                <ellipse cx="77" cy="81" rx="3.5" ry="18" fill="url(#propGrad2)" opacity="0.5"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.005s;">
+                <ellipse cx="23" cy="19" rx="18" ry="3.5" fill="url(#propGrad2)" opacity="0.7"/>
+                <ellipse cx="23" cy="19" rx="3.5" ry="18" fill="url(#propGrad2)" opacity="0.5"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.025s;">
+                <ellipse cx="23" cy="81" rx="18" ry="3.5" fill="url(#propGrad2)" opacity="0.7"/>
+                <ellipse cx="23" cy="81" rx="3.5" ry="18" fill="url(#propGrad2)" opacity="0.5"/>
+            </g>
+            
+            <!-- Body -->
+            <ellipse cx="50" cy="50" rx="18" ry="14" fill="url(#bodyGrad2)" stroke="#3b82f6" stroke-width="1"/>
+            
+            <!-- Top detail -->
+            <circle cx="50" cy="46" r="4" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+            <circle cx="50" cy="45" r="2" fill="#60a5fa" opacity="0.9"/>
+            
+            <!-- Camera -->
+            <g transform="translate(50, 65)">
+                <rect x="-6" y="-3" width="12" height="6" rx="1" fill="#374151"/>
+                <circle cx="0" cy="5" r="6" fill="#1f2937" stroke="#4b5563" stroke-width="1"/>
+                <circle cx="0" cy="5" r="3.5" fill="#0f172a"/>
+                <circle cx="0" cy="5" r="2" fill="#1e3a5f"/>
+            </g>
+            
+            <!-- Status light -->
+            <circle cx="50" cy="38" r="1.5" fill="#3b82f6">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+
+    <!-- UAV 3 - Compact Drone -->
+    <div class="uav uav-float-3" style="top: 68%; width: 80px; height: 80px;">
+        <svg class="uav-svg" viewBox="0 0 80 80">
+            <defs>
+                <linearGradient id="bodyGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0f172a"/>
+                    <stop offset="100%" style="stop-color:#1e293b"/>
+                </linearGradient>
+                <radialGradient id="propGrad3">
+                    <stop offset="0%" style="stop-color:rgba(139,92,246,0.7)"/>
+                    <stop offset="100%" style="stop-color:rgba(139,92,246,0)"/>
+                </radialGradient>
+            </defs>
+            
+            <!-- Shadow -->
+            <ellipse cx="40" cy="70" rx="20" ry="4" fill="rgba(0,0,0,0.2)"/>
+            
+            <!-- Arms -->
+            <g transform="translate(40,40)">
+                <rect x="0" y="-3" width="30" height="6" rx="1.5" fill="#334155" transform="rotate(45)"/>
+                <rect x="0" y="-3" width="30" height="6" rx="1.5" fill="#334155" transform="rotate(-45)"/>
+                <rect x="-30" y="-3" width="30" height="6" rx="1.5" fill="#334155" transform="rotate(45)"/>
+                <rect x="-30" y="-3" width="30" height="6" rx="1.5" fill="#334155" transform="rotate(-45)"/>
+            </g>
+            
+            <!-- Motors -->
+            <circle cx="62" cy="22" r="5" fill="#475569" stroke="#64748b" stroke-width="0.5"/>
+            <circle cx="62" cy="58" r="5" fill="#475569" stroke="#64748b" stroke-width="0.5"/>
+            <circle cx="18" cy="22" r="5" fill="#475569" stroke="#64748b" stroke-width="0.5"/>
+            <circle cx="18" cy="58" r="5" fill="#475569" stroke="#64748b" stroke-width="0.5"/>
+            
+            <!-- Mini LEDs -->
+            <circle cx="62" cy="16" r="1.5" fill="#f87171" class="led-red"/>
+            <circle cx="18" cy="16" r="1.5" fill="#4ade80" class="led-green"/>
+            
+            <!-- Propellers -->
+            <g class="propeller-blur">
+                <ellipse cx="62" cy="16" rx="14" ry="2.5" fill="url(#propGrad3)" opacity="0.6"/>
+                <ellipse cx="62" cy="16" rx="2.5" ry="14" fill="url(#propGrad3)" opacity="0.4"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.01s;">
+                <ellipse cx="62" cy="64" rx="14" ry="2.5" fill="url(#propGrad3)" opacity="0.6"/>
+                <ellipse cx="62" cy="64" rx="2.5" ry="14" fill="url(#propGrad3)" opacity="0.4"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.02s;">
+                <ellipse cx="18" cy="16" rx="14" ry="2.5" fill="url(#propGrad3)" opacity="0.6"/>
+                <ellipse cx="18" cy="16" rx="2.5" ry="14" fill="url(#propGrad3)" opacity="0.4"/>
+            </g>
+            <g class="propeller-blur" style="animation-delay: 0.015s;">
+                <ellipse cx="18" cy="64" rx="14" ry="2.5" fill="url(#propGrad3)" opacity="0.6"/>
+                <ellipse cx="18" cy="64" rx="2.5" ry="14" fill="url(#propGrad3)" opacity="0.4"/>
+            </g>
+            
+            <!-- Body -->
+            <ellipse cx="40" cy="40" rx="14" ry="11" fill="url(#bodyGrad3)" stroke="#475569" stroke-width="0.5"/>
+            
+            <!-- Sensor -->
+            <circle cx="40" cy="37" r="3" fill="#0f172a" stroke="#6366f1" stroke-width="0.5"/>
+            <circle cx="40" cy="36.5" r="1.5" fill="#818cf8" opacity="0.8"/>
+            
+            <!-- Mini camera -->
+            <circle cx="40" cy="52" r="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+            <circle cx="40" cy="52" r="2" fill="#0f172a"/>
+            
+            <!-- Status LED -->
+            <circle cx="40" cy="31" r="1" fill="#8b5cf6">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="1s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+            <div class="uav-arm"></div>
+            <div class="uav-propeller"></div>
+            <div class="uav-propeller"></div>
+            <div class="uav-propeller"></div>
+            <div class="uav-propeller"></div>
+            <div class="uav-center"></div>
+        </div>
+    </div>
+
+    <!-- Animated Satellites -->
+    <div class="satellite satellite-orbit-1" style="top: 10%; left: 10%;">
+        <div class="satellite-panel left"></div>
+        <div class="satellite-body"></div>
+        <div class="satellite-panel right"></div>
+        <div class="satellite-dish"></div>
+        <div class="satellite-signal">
+            <div class="signal-wave"></div>
+            <div class="signal-wave"></div>
+            <div class="signal-wave"></div>
+        </div>
+    </div>
+
+    <div class="satellite satellite-orbit-2" style="top: 60%; left: 80%;">
+        <div class="satellite-panel left"></div>
+        <div class="satellite-body"></div>
+        <div class="satellite-panel right"></div>
+        <div class="satellite-dish"></div>
+        <div class="satellite-signal">
+            <div class="signal-wave"></div>
+            <div class="signal-wave"></div>
+            <div class="signal-wave"></div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
@@ -414,6 +997,117 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Focus Areas with UAV/Satellite Icons -->
+    <section class="py-16 relative bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-white mb-4">Research Focus Areas</h2>
+                <p class="text-gray-400">Core domains of expertise and ongoing investigations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- UAV Communications -->
+                <div class="glass-card rounded-2xl p-6 text-center reveal">
+                    <div class="research-icon mx-auto mb-4">
+                        <svg class="uav-icon-svg" viewBox="0 0 60 60" fill="none">
+                            <!-- UAV Body -->
+                            <circle cx="30" cy="30" r="8" fill="url(#uavGrad)" filter="url(#glow)"/>
+                            <!-- Arms -->
+                            <rect x="28" y="5" width="4" height="20" rx="2" fill="#3b82f6"/>
+                            <rect x="28" y="35" width="4" height="20" rx="2" fill="#3b82f6"/>
+                            <rect x="5" y="28" width="20" height="4" rx="2" fill="#3b82f6"/>
+                            <rect x="35" y="28" width="20" height="4" rx="2" fill="#3b82f6"/>
+                            <!-- Propellers -->
+                            <ellipse cx="10" cy="15" rx="8" ry="2" fill="#60a5fa" opacity="0.8"/>
+                            <ellipse cx="50" cy="15" rx="8" ry="2" fill="#60a5fa" opacity="0.8"/>
+                            <ellipse cx="10" cy="45" rx="8" ry="2" fill="#60a5fa" opacity="0.8"/>
+                            <ellipse cx="50" cy="45" rx="8" ry="2" fill="#60a5fa" opacity="0.8"/>
+                            <!-- Gradients -->
+                            <defs>
+                                <linearGradient id="uavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6"/>
+                                    <stop offset="100%" style="stop-color:#1e40af"/>
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">UAV Communications</h3>
+                    <p class="text-sm text-gray-400">Drone-assisted 5G/6G networks, aerial base stations, and coverage optimization</p>
+                </div>
+
+                <!-- Satellite Navigation -->
+                <div class="glass-card rounded-2xl p-6 text-center reveal">
+                    <div class="research-icon mx-auto mb-4">
+                        <svg class="satellite-icon-svg" viewBox="0 0 50 50" fill="none">
+                            <!-- Solar Panels -->
+                            <rect x="2" y="18" width="16" height="14" rx="1" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
+                            <rect x="32" y="18" width="16" height="14" rx="1" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
+                            <!-- Panel Lines -->
+                            <line x1="6" y1="18" x2="6" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="10" y1="18" x2="10" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="14" y1="18" x2="14" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="36" y1="18" x2="36" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="40" y1="18" x2="40" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="44" y1="18" x2="44" y2="32" stroke="#8b5cf6" stroke-width="0.5" opacity="0.5"/>
+                            <!-- Satellite Body -->
+                            <circle cx="25" cy="25" r="7" fill="url(#satGrad)" filter="url(#satGlow)"/>
+                            <!-- Dish -->
+                            <path d="M22 32 Q25 36 28 32" stroke="#6366f1" stroke-width="2" fill="none"/>
+                            <!-- Signal Waves -->
+                            <circle cx="25" cy="25" r="12" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.5"/>
+                            <circle cx="25" cy="25" r="16" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.3"/>
+                            <!-- Gradients -->
+                            <defs>
+                                <radialGradient id="satGrad" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#a78bfa"/>
+                                    <stop offset="100%" style="stop-color:#6366f1"/>
+                                </radialGradient>
+                                <filter id="satGlow">
+                                    <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Satellite Navigation</h3>
+                    <p class="text-sm text-gray-400">GNSS systems, PNT services, and next-generation satellite constellations</p>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="glass-card rounded-2xl p-6 text-center reveal">
+                    <div class="research-icon mx-auto mb-4">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i data-lucide="brain" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Machine Learning</h3>
+                    <p class="text-sm text-gray-400">AI-driven wireless systems, computer vision, and predictive analytics</p>
+                </div>
+
+                <!-- 5G/6G Networks -->
+                <div class="glass-card rounded-2xl p-6 text-center reveal">
+                    <div class="research-icon mx-auto mb-4">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                            <i data-lucide="radio" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">5G/6G Networks</h3>
+                    <p class="text-sm text-gray-400">Next-generation wireless communications and mmWave/THz systems</p>
                 </div>
             </div>
         </div>
