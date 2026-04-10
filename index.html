@@ -2050,13 +2050,15 @@
                     // Animate stat numbers
                     if (entry.target.querySelector('.stat-number')) {
                         entry.target.querySelectorAll('.stat-number').forEach(stat => {
-                            const target = parseInt(stat.getAttribute('data-target'));
+                            const raw = stat.getAttribute('data-target');
+                            const suffix = raw.replace(/[0-9]/g, '');
+                            const target = parseInt(raw);
                             let current = 0;
-                            const increment = target / 50;
+                            const increment = Math.max(target / 50, 1);
                             const timer = setInterval(() => {
                                 current += increment;
                                 if (current >= target) {
-                                    stat.textContent = target + (target === 100 ? '+' : '');
+                                    stat.textContent = target + suffix;
                                     clearInterval(timer);
                                 } else {
                                     stat.textContent = Math.floor(current);
@@ -2067,7 +2069,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // Smooth scroll for navigation links
