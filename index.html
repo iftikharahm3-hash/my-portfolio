@@ -631,6 +631,28 @@
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
             50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8)); }
         }
+
+        .ml-icon-svg {
+    width: 60px;
+    height: 60px;
+    animation: mlPulse 4s ease-in-out infinite;
+}
+
+@keyframes mlPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.network-icon-svg {
+    width: 60px;
+    height: 60px;
+    animation: towerPulse 3s ease-in-out infinite;
+}
+
+@keyframes towerPulse {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.6)); }
+}
     </style>
 <base target="_blank">
 </head>
