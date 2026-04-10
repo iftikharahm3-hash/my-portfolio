@@ -631,6 +631,29 @@
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
             50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8)); }
         }
+        /* Machine Learning Icon Animation */
+.ml-icon-svg {
+    width: 60px;
+    height: 60px;
+    animation: mlPulse 4s ease-in-out infinite;
+}
+
+@keyframes mlPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* 5G/6G Network Icon Animation */
+.network-icon-svg {
+    width: 60px;
+    height: 60px;
+    animation: towerPulse 3s ease-in-out infinite;
+}
+
+@keyframes towerPulse {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.6)); }
+}
     </style>
 <base target="_blank">
 </head>
@@ -1253,26 +1276,85 @@
                 </div>
 
                 <!-- Machine Learning -->
-                <div class="glass-card rounded-2xl p-6 text-center reveal">
-                    <div class="research-icon mx-auto mb-4">
-                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i data-lucide="brain" class="w-8 h-8 text-white"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Machine Learning</h3>
-                    <p class="text-sm text-gray-400">AI-driven wireless systems, computer vision, and predictive analytics</p>
-                </div>
-
-                <!-- 5G/6G Networks -->
-                <div class="glass-card rounded-2xl p-6 text-center reveal">
-                    <div class="research-icon mx-auto mb-4">
-                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-                            <i data-lucide="radio" class="w-8 h-8 text-white"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">5G/6G Networks</h3>
-                    <p class="text-sm text-gray-400">Next-generation wireless communications and mmWave/THz systems</p>
-                </div>
+<div class="glass-card rounded-2xl p-6 text-center reveal">
+    <div class="research-icon mx-auto mb-4">
+        <svg class="ml-icon-svg" viewBox="0 0 60 60" fill="none">
+            <!-- Neural Network Nodes -->
+            <circle cx="30" cy="12" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="15" cy="30" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+            </circle>
+            <circle cx="30" cy="30" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite" begin="0.25s"/>
+            </circle>
+            <circle cx="45" cy="30" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.75s"/>
+            </circle>
+            <circle cx="22" cy="48" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+            </circle>
+            <circle cx="38" cy="48" r="4" fill="url(#mlGrad1)" filter="url(#mlGlow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+            </circle>
+            
+            <!-- Neural Connections -->
+            <line x1="30" y1="12" x2="15" y2="30" stroke="#a855f7" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+            </line>
+            <line x1="30" y1="12" x2="30" y2="30" stroke="#a855f7" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.2s"/>
+            </line>
+            <line x1="30" y1="12" x2="45" y2="30" stroke="#a855f7" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.4s"/>
+            </line>
+            <line x1="15" y1="30" x2="22" y2="48" stroke="#ec4899" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.1s"/>
+            </line>
+            <line x1="30" y1="30" x2="22" y2="48" stroke="#ec4899" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.3s"/>
+            </line>
+            <line x1="30" y1="30" x2="38" y2="48" stroke="#ec4899" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+            </line>
+            <line x1="45" y1="30" x2="38" y2="48" stroke="#ec4899" stroke-width="1.5" opacity="0.6">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" begin="0.7s"/>
+            </line>
+            
+            <!-- Data Flow Particles -->
+            <circle cx="22" cy="21" r="1.5" fill="#f0abfc" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="cy" values="12;30" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="30" cy="21" r="1.5" fill="#f0abfc" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                <animate attributeName="cy" values="12;30" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+            </circle>
+            <circle cx="38" cy="21" r="1.5" fill="#f0abfc" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/>
+                <animate attributeName="cy" values="12;30" dur="2s" repeatCount="indefinite" begin="1s"/>
+            </circle>
+            
+            <!-- Gradients -->
+            <defs>
+                <radialGradient id="mlGrad1" cx="30%" cy="30%">
+                    <stop offset="0%" style="stop-color:#e879f9"/>
+                    <stop offset="100%" style="stop-color:#a855f7"/>
+                </radialGradient>
+                <filter id="mlGlow">
+                    <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Machine Learning</h3>
+    <p class="text-sm text-gray-400">AI-driven wireless systems, computer vision, and predictive analytics</p>
+</div>
             </div>
         </div>
     </section>
